@@ -1,0 +1,9 @@
+<div *ngIf="selectedGenre">
+
+  <ul>
+    <li *ngFor="let film of selectedGenre">{{film.name + ' ' + film.genre}}</li>
+  </ul>
+  
+  
+  <button (click)="goBack()" style="position: fixed; bottom: 20%">go back</button>
+</div>

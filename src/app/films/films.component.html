@@ -1,0 +1,16 @@
+<div class="container mt-5">
+  
+  <div class="row" *ngIf="films != null">
+    <div class="col-md-3" *ngFor="let film of films | sort:name">
+      <div class="card" style="width: 18rem;" >
+        <a [routerLink]="['/film', film.id]">
+          <div class="card-body">
+            <img src="assets/300x200.png" class="card-img-top" alt="...">
+            <h5 class="card-title">{{film.name + ' ' + film.genre}}</h5>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  
+</div>

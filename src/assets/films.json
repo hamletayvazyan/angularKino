@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Avengers",
+    "genre": "action",
+    "year": 2019
+  },
+  {
+    "id": 2,
+    "name": "Ghost Rider",
+    "genre": "comedy",
+    "year": 2019
+  },
+  {
+    "id": 3,
+    "name": "Ant-Man",
+    "genre": "adventure",
+    "year": 2019
+  },
+  {
+    "id": 4,
+    "name": "Thor",
+    "genre": "action",
+    "year": 2019
+  },
+  {
+    "id": 5,
+    "name": "Deadpool",
+    "genre": "crime",
+    "year": 2019
+  },
+  {
+    "id": 6,
+    "name": "Avengers",
+    "genre": "drama",
+    "year": 2019
+  },
+  {
+    "id": 7,
+    "name": "Avengers",
+    "genre": "comedy",
+    "year": 2019
+  },
+  {
+    "id": 8,
+    "name": "Avengers",
+    "genre": "crime",
+    "year": 2019
+  },
+  {
+    "id": 9,
+    "name": "Avengers",
+    "genre": "drama",
+    "year": 2019
+  },
+  {
+    "id": 10,
+    "name": "Avengers",
+    "genre": "adventure",
+    "year": 2019
+  }
+]

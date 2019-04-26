@@ -3,13 +3,30 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FilmsComponent } from './films/films.component';
+import { FilmDetailComponent } from './film-detail/film-detail.component';
+import { PageNotFoundComponent } from './page-not-found.component';
+import {HttpClientModule} from '@angular/common/http';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FilmGenreComponent } from './film-genre/film-genre.component';
+import { SortPipe } from './sort.pipe';
+import { SearchPipe } from './search.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FilmsComponent,
+    FilmDetailComponent,
+    FilmGenreComponent,
+    PageNotFoundComponent,
+    SortPipe,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule
   ],
   providers: [],
