@@ -1,4 +1,4 @@
-<div *ngIf="film">
+<div *ngIf="film" class="container mt-5">
   <h2>{{film.name | uppercase}} Details</h2>
   <div><span>id: </span>{{film.id}}</div>
   <div>
@@ -7,4 +7,16 @@
     </label>
   </div>
   <button (click)="goBack()">go back</button>
+  <br>
+  <br>
+  <br>
+  <h2>Buy Ticket</h2>
+  <br>
+  <div class="border-primary">
+    <ul class="list-group border-primary">
+      <li class="list-group-item" *ngFor="let r of rows">
+        <ul class="list-group list-group-horizontal"><li class="list-group-item" *ngFor="let row of r.row; let i=index"><input type="button" [value]="row.key"></li></ul>
+      </li>
+    </ul>
+  </div>
 </div>
