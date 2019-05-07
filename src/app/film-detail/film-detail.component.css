@@ -1,4 +1,4 @@
-input[type='button']{
+.inputs {
     background: transparent;
     border: 1px solid black;
     width: 30px;
@@ -7,4 +7,11 @@ input[type='button']{
 }
 li {
     border: unset;
+}
+input:focus{
+    outline: none;
+}
+.disabled {
+    background: grey;
+    color: white;
 }

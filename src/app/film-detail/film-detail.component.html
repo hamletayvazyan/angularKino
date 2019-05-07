@@ -13,9 +13,17 @@
   <h2>Buy Ticket</h2>
   <br>
   <div class="border-primary">
-    <ul class="list-group border-primary">
-      <li class="list-group-item" *ngFor="let r of rows">
-        <ul class="list-group list-group-horizontal"><li class="list-group-item" *ngFor="let row of r.row; let i=index"><input type="button" [value]="row.key"></li></ul>
+    <ul class="list-group border-primary" *ngIf="halls">
+      <li class="list-group-item" *ngFor="let r of halls">
+        <ul class="list-group list-group-horizontal">
+          <li class="list-group-item" *ngFor="let row of r.row; let i=index">
+            <span *ngIf="i==0">{{row.key}}</span>
+            <input *ngIf="i!=0" type="button" class="inputs"
+                   [name]="row.pr" [value]="row.key"
+                   [class.disabled]="row.disabled" [disabled]="row.disabled"
+                   (click)="row.disabled = true;checkVal(row.key,row.pr,row.disabled)">
+          </li>
+        </ul>
       </li>
     </ul>
   </div>
