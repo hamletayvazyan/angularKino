@@ -20,8 +20,9 @@
             <span *ngIf="i==0">{{row.key}}</span>
             <input *ngIf="i!=0" type="button" class="inputs"
                    [name]="row.pr" [value]="row.key"
+                   id="{{row.id}}"
                    [class.disabled]="row.disabled" [disabled]="row.disabled"
-                   (click)="row.disabled = true;checkVal(row.key,row.pr,row.disabled)">
+                   (click)="row.disabled = true;checkVal(row.id)">
           </li>
         </ul>
       </li>

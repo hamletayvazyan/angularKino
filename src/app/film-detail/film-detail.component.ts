@@ -36,8 +36,8 @@ export class FilmDetailComponent implements OnInit {
     goBack(): void {
         this.location.back();
     }
-    checkVal(k, p, d) {
-        this.selected.push({key: k, pr: p, disabled: d});
+    checkVal(i) {
+        this.selected.push({id: i});
         if (this.localStorageItems) {
             console.log(this.localStorageItems);
             localStorage.setItem('checked', JSON.stringify(this.selected));
@@ -53,14 +53,6 @@ export class FilmDetailComponent implements OnInit {
             if (localStorage.getItem('checked')) {
                 this.localStorageItems = JSON.parse(localStorage.getItem('checked'));
                 console.log(this.localStorageItems);
-            }
-            for (let i = 0; i < d.length;) {
-                for (let j = 0; j < d[i].row.length; j++) {
-                  //  console.log(d[i].row[j]);
-                    if (d[i].row[j].includes(this.localStorageItems)) {
-                        console.log('ok');
-                    }
-                }
             }
         }
     }
