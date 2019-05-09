@@ -1,7 +1,8 @@
 import {Injectable} from '@angular/core';
-import {catchError} from 'rxjs/operators';
+import {catchError, map} from 'rxjs/operators';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {throwError} from 'rxjs';
+import {Hall} from './hall';
 
 @Injectable({
     providedIn: 'root'
@@ -17,7 +18,11 @@ export class HallService {
             catchError(this.handleError)
         );
     }
-
+    // getHall(id: number | string) {
+    //     return this.getHalls().pipe(
+    //         map((film: Hall[]) =>  film.find(f => f.id === +id))
+    //     );
+    // }
     private handleError(error: HttpErrorResponse) {
         if (error.error instanceof ErrorEvent) {
             // A client-side or network error occurred. Handle it accordingly.

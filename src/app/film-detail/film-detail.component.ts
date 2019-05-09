@@ -13,54 +13,61 @@ export class FilmDetailComponent implements OnInit {
 
     film;
     selected = [];
-    localStorageItems;
-    halls;
+    hall;
 
     constructor(private route: ActivatedRoute,
                 private filmService: FilmsService,
                 private hallService: HallService,
                 private location: Location) {
+        this.getFilm();
     }
 
     ngOnInit() {
         this.getHalls();
-        this.getFilm();
+    }
+
+    getHalls() {
+        this.hallService.getHalls()
+            .subscribe(d => {
+                this.hall = d;
+            }, e => console.log(e));
     }
 
     getFilm(): void {
         const id = +this.route.snapshot.paramMap.get('id');
         this.filmService.getFilm(id)
-            .subscribe(hero => this.film = hero);
+            .subscribe(
+                film => {
+                    this.film = film;
+                    this.checkLocalStorage(this.film);
+                },
+                e => console.log(e)
+            );
     }
 
     goBack(): void {
         this.location.back();
     }
-    checkVal(i) {
-        this.selected.push({id: i});
-        if (this.localStorageItems) {
-            console.log(this.localStorageItems);
-            localStorage.setItem('checked', JSON.stringify(this.selected));
-            this.localStorageItems = JSON.parse(localStorage.getItem('checked'));
+
+    pickPosition(i) {
+        if (this.selected) {
+            this.selected.push({id: i});
+            localStorage.setItem(this.film.id, JSON.stringify(this.selected));
         } else {
-            localStorage.setItem('checked', JSON.stringify(this.selected));
-            this.localStorageItems = JSON.parse(localStorage.getItem('checked'));
+            this.selected.push({id: i});
+            localStorage.setItem(this.film.id, JSON.stringify(this.selected));
         }
     }
-    checkLocalStorage(d) {
-        console.log(d);
-        if (d) {
-            if (localStorage.getItem('checked')) {
-                this.localStorageItems = JSON.parse(localStorage.getItem('checked'));
-                console.log(this.localStorageItems);
+
+    checkLocalStorage(film) {
+        if (localStorage.getItem(film.id)) {
+            let jsonData = JSON.parse(localStorage.getItem(film.id));
+            for (let i = 0; i < jsonData.length; i++) {
+                this.selected.push(jsonData[i]);
             }
+            console.log(this.selected);
+        } else {
+            console.log('empty');
         }
-    }
-    getHalls() {
-        this.hallService.getHalls()
-            .subscribe(d => {
-                this.halls = d;
-                this.checkLocalStorage(d);
-            }, e => console.log(e));
     }
 }
