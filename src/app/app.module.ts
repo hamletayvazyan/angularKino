@@ -11,6 +11,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { FilmGenreComponent } from './film-genre/film-genre.component';
 import { SortPipe } from './sort.pipe';
 import { SearchPipe } from './search.pipe';
+import { FilterSelectedPostsPipe } from './filter-selected-posts.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SearchPipe } from './search.pipe';
     FilmGenreComponent,
     PageNotFoundComponent,
     SortPipe,
-    SearchPipe
+    SearchPipe,
+    FilterSelectedPostsPipe
   ],
   imports: [
     BrowserModule,

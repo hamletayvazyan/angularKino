@@ -16,7 +16,7 @@
     <ul class="list-group border-primary" *ngIf="hall">
       <li class="list-group-item" *ngFor="let r of hall">
         <ul class="list-group list-group-horizontal">
-          <li class="list-group-item" *ngFor="let row of r.row; let i=index">
+          <li class="list-group-item" *ngFor="let row of r.row | filterSelectedPosts: selected; let i=index ">
             <span *ngIf="i==0">{{row.key}}</span>
             <input *ngIf="i!=0" type="button" class="inputs"
                    [value]="row.key"
